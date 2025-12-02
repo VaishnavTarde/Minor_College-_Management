@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 25% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 94% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 46%;
+    --muted-foreground: 220 13% 46%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(188 94% 43%) 100%);
+    --card-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --card-shadow-hover: 0 12px 28px rgba(15, 23, 42, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 220 25% 97%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 220 25% 97%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 220 25% 97%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 94% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 46%;
+    --muted-foreground: 220 17% 70%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 217 91% 60%;
+
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --card-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Calendar Styles */
+.react-calendar {
+  @apply w-full border-none font-sans;
+}
+
+.react-calendar__navigation {
+  @apply flex mb-6 gap-2;
+}
+
+.react-calendar__navigation button {
+  @apply min-w-[44px] bg-transparent text-foreground hover:bg-primary/10 rounded-lg transition-colors font-semibold;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  @apply bg-primary/10;
+}
+
+.react-calendar__navigation__label {
+  @apply font-bold text-lg;
+}
+
+.react-calendar__month-view__weekdays {
+  @apply text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  @apply py-2 text-center;
+}
+
+.react-calendar__month-view__weekdays abbr {
+  @apply no-underline;
+}
+
+.react-calendar__tile {
+  @apply p-3 text-center hover:bg-primary/10 rounded-lg transition-all relative aspect-square flex items-center justify-center;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  @apply bg-primary/10;
+}
+
+.react-calendar__tile--active {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 font-semibold;
+}
+
+.react-calendar__tile--now {
+  @apply bg-accent/20 hover:bg-accent/30 font-semibold;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  @apply bg-accent/30;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  @apply text-muted-foreground/30;
+}
+
+.react-calendar__tile--hasActive {
+  @apply bg-primary text-primary-foreground;
+}
